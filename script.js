@@ -67,6 +67,7 @@ function createCartItemElement({ sku, name, salePrice }) {
 const addToCart = async (event) => {
   const elementId = getSkuFromProductItem(event.target.parentElement);
   const { id: sku, title: name, price: salePrice } = await fetchItem(elementId);
+  console.log(sku);
   itemCart.appendChild(createCartItemElement({ sku, name, salePrice }));
   uploadTotalAmount();
   saveCartItems(itemCart.innerHTML);
